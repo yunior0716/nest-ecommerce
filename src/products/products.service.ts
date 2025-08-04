@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import {
   BadRequestException,
   Injectable,
@@ -155,10 +156,7 @@ export class ProductsService {
     const query = this.productRepository.createQueryBuilder('product');
 
     try {
-      return await query
-      .delete()
-      .where({})
-      .execute();
+      return await query.delete().where({}).execute();
     } catch (error) {
       this.handleDBExceptions(error);
     }
